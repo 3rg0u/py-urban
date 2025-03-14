@@ -2,5 +2,5 @@
 
 
 @section('content')
-    this is dasboard
+    this is admin dasboard
 @endsection

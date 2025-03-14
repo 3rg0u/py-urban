@@ -69,10 +69,6 @@ Route::prefix('/admin')->group(function () {
 
         Route::prefix('/account')->group(function () {
             Route::get('/', [ResidentAccountController::class, 'index'])->name('residents.account.index');
-            Route::get('/create', [ResidentAccountController::class, 'create'])->name('residents.account.create');
-            Route::post('/create', [ResidentAccountController::class, 'store'])->name('residents.account.create');
-            Route::get('/edit/{id}', [ResidentAccountController::class, 'edit'])->name('residents.account.edit');
-            Route::put('/edit/{id}', [ResidentAccountController::class, 'update'])->name('residents.account.edit');
         });
     });
 });

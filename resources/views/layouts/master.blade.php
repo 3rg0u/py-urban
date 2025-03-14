@@ -16,31 +16,6 @@
 
 <body>
     @yield('body')
-    @if (session('success'))
-        <script>
-            Swal.fire({
-                icon: 'success',
-                title: 'Thành công',
-                text: "{{ session('success') }}",
-                timer: 3000,
-                showConfirmButton: false
-            });
-        </script>
-    @endif
-    @if ($errors->any())
-        <script>
-            let errMsg = @json($errors->all()).join('\n');
-            Swal.fire({
-                icon: 'error',
-                title: 'Đã xảy ra lỗi',
-                text: errMsg,
-                timer: 3000,
-                showConfirmButton: false
-            });
-        </script>
-    @endif
-
 </body>
-
 
 </html>
