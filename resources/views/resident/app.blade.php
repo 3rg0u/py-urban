@@ -73,15 +73,17 @@
                 </div>
             </div>
             <ul class="list-unstyled px-2">
-                <li><a href="{{route('services.pernament.index')}}" class="text-decoration-none px-3 py-2 d-block"><i
-                            class="fal fa-list"></i>Dịch vụ cố định</a></li>
+                <li><a href="{{route('resident.services.registration.index')}}"
+                        class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-list"></i>Đăng ký dịch vụ</a></li>
             </ul>
             <ul class="list-unstyled px-2">
-                <li><a href="{{route('services.subscription.index')}}" class="text-decoration-none px-3 py-2 d-block"><i
-                            class="fal fa-list"></i>Dịch vụ định kỳ</a></li>
+                <li><a href="{{route('resident.services.registration.enrolled')}}"
+                        class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-list"></i>Dịch vụ đã đăng ký</a>
+                </li>
             </ul>
             <ul class="list-unstyled px-2">
-                <li><a class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-list"></i>Quản lý hóa đơn</a></li>
+                <li><a href='{{route('resident.bills.index')}}' class="text-decoration-none px-3 py-2 d-block"><i
+                            class="fal fa-list"></i>Quản lý hóa đơn</a></li>
             </ul>
             <ul class="list-unstyled px-2">
                 <li><a class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-list"></i>Quản lý tài khoản cư
@@ -103,7 +105,7 @@
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();"
-                            class="btn btn-link logout-a" style="text-decoration: none">
+                            class="btn btn-danger logout-a" style="text-decoration: none">
                             {{ __('Đăng xuất') }}
                         </a>
                     </form>

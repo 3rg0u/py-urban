@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\ResidentAccountController;
 use App\Http\Controllers\admin\ResidentInforController;
 use App\Http\Controllers\admin\ServicePernamentController;
 use App\Http\Controllers\admin\ServiceSubscriptionController;
+use App\Http\Controllers\resident\BillController as ResidentBillController;
 use App\Http\Controllers\resident\ServiceSubController;
 
 /*
@@ -115,14 +116,20 @@ Route::middleware(['auth', 'resident.assert'])->group(function () {
 
         Route::prefix('/services')->group(function () {
             Route::get('/', function () {
-                return redirect()->route('resident.services.unsub.index');
+                return redirect()->route('resident.services.registration.index');
             });
 
             Route::prefix('/registration')->group(function () {
-                Route::get('/', [ServiceSubController::class, 'index'])->name('resident.services.regstration.index');
+                Route::get('/', [ServiceSubController::class, 'index'])->name('resident.services.registration.index');
                 Route::post('/enroll/{id}', [ServiceSubController::class, 'store'])->name('resident.services.registration.enroll');
+                Route::get('/registered', [ServiceSubController::class, 'registered'])->name('resident.services.registration.enrolled');
+                Route::delete('/leave/{id}', [ServiceSubController::class, 'destroy'])->name('resident.services.registration.leave');
             });
 
+            Route::prefix('/bills')->group(function () {
+                Route::get('/', [ResidentBillController::class, 'index'])->name('resident.bills.index');
+                Route::put('/checkout/{id}', [ResidentBillController::class, 'checkout'])->name('resident.bills.checkout');
+            });
         });
     });
 

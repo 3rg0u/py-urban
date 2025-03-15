@@ -19,18 +19,6 @@
                     <td>{{$bill->state}}</td>
                     <td>{{$bill->paid_date}}</td>
                     <td>{{$bill->price}}</td>
-                    {{-- <td>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#_editInfor_{{$resident->id}}">
-                            Chỉnh sửa thông tin
-                        </button>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                            data-bs-target="#_dropInfor_{{$resident->id}}">
-                            Xóa cư dân
-                        </button>
-                        @include('admin.resident.information.components.edit', ['resident' => $resident, 'aparts' => $aparts])
-                        @include('admin.resident.information.components.delete', ['resident' => $resident])
-                    </td> --}}
                 </tr>
             @endforeach
         </tbody>

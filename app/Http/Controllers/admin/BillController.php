@@ -58,6 +58,7 @@ class BillController extends Controller
                 ]
             );
         }
+        return back()->with('success', 'Tạo hóa đơn hòan tất');
     }
 
 

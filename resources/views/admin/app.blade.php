@@ -114,22 +114,13 @@
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();"
-                            class="btn btn-link logout-a" style="text-decoration: none">
+                            class="btn btn-danger logout-a" style="text-decoration: none">
                             {{ __('Đăng xuất') }}
                         </a>
                     </form>
                 </li>
             </ul>
 
-            <ul class="list-unstyled px-2">
-                <li>
-                    <form action="{{route('profile.destroy')}}">
-                        <button type="submit" class="btn btn-md btn-danger">
-                            Đăng xuất
-                        </button>
-                    </form>
-                </li>
-            </ul>
 
 
 
