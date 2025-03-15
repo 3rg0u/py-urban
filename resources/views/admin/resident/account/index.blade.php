@@ -18,7 +18,12 @@
                     data-bs-target="#_editAccountPW_{{$account->id}}">
                     Đổi mật khẩu
                 </button>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                    data-bs-target="#_dropAccount_{{$account->id}}">
+                    Xóa tài khoản
+                </button>
                 @include('admin.resident.account.components.editpass', ['account' => $account])
+                @include('admin.resident.account.components.delete', ['account' => $account])
             </td>
         </tr> @endforeach </tbody>
     </table>

@@ -21,7 +21,8 @@ class Resident extends Model
     protected $fillable = [
         'name',
         'id',
-        'apartment'
+        'apart_id',
+        'host'
     ];
 
 }

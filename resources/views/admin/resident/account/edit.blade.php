@@ -1,7 +1,7 @@
 @extends('admin.app')
 @section('content')
 
-    <a href="{{ url()->previous() }}" class="btn btn-secondary">back</a>
+    <a href="{{ route('residents.account.index') }}" class="btn btn-md btn-secondary">Trở lại</a>
 
     <form action="{{route('residents.account.edit', ['id' => $account->id])}}" method="POST" id='edit_account'>
         @method('PUT')

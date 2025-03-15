@@ -19,13 +19,10 @@ class ResidentFactory extends Factory
      */
     public function definition(): array
     {
-        $host = Arr::random(['host', 'member']);
         return [
             'id' => '' . fake()->unique()->randomNumber(9, true),
-            'host' => $host,
             'name' => fake()->name,
             'apart_id' => Apartment::inRandomOrder()->first()->id,
-            'email' => ($host == 'host') ? User::inRandomOrder()->first()->email : null
         ];
     }
 }

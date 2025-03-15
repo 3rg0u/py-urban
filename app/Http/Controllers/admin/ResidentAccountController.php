@@ -90,15 +90,23 @@ class ResidentAccountController extends Controller
                     'apart_id' => 'required'
                 ]
             );
-            $account->update(
-                [
-                    'email' => $data['email'],
-                    'apart_id' => $data['apart_id']
-                ]
-            );
+            $account->fill($data);
+            $account->update($account->getDirty());
             return back()->with('success', 'Cập nhật mật khẩu thành cống');
         } catch (ModelNotFoundException $exc) {
             return back()->withErrors(['id' => "ID không hợp lệ"]);
+        }
+    }
+
+
+    public function destroy($id)
+    {
+        try {
+            $account = User::findOrFail($id);
+            $account->delete();
+            return back()->with('success', 'Xóa tài khoản hoàn tất!');
+        } catch (ModelNotFoundException $exc) {
+            return back()->withErrors(['id' => 'ID không hợp lệ!']);
         }
     }
 }

@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\admin\ResidentAccountController;
+use App\Http\Controllers\admin\ResidentInforController;
 use App\Http\Controllers\admin\ServicePernamentController;
 use App\Http\Controllers\admin\ServiceSubscriptionController;
 /*
@@ -75,6 +76,16 @@ Route::middleware(['auth', 'admin.assert'])->group(function () {
 
 
                 Route::put('/edit/pw/{id}', [ResidentAccountController::class, 'updatePassword'])->name('residents.account.editpw');
+                Route::delete('/delete/{id}', [ResidentAccountController::class, 'destroy'])->name('residents.account.delete');
+            });
+
+            Route::prefix('/information')->group(function () {
+                Route::get('/', [ResidentInforController::class, 'index'])->name('residents.infor.index');
+                Route::get('/create', [ResidentInforController::class, 'create'])->name('residents.infor.create');
+                Route::post('/create', [ResidentInforController::class, 'store'])->name('residents.infor.create');
+                Route::get('/show/{id}', [ResidentInforController::class, 'show'])->name('residents.infor.list');
+                Route::put('/edit/{id}', [ResidentInforController::class, 'update'])->name('residents.infor.edit');
+                Route::delete('/delete/{id}', [ResidentInforController::class, 'destroy'])->name('residents.infor.delete');
             });
         });
     });
