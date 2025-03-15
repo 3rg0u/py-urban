@@ -22,7 +22,6 @@ class ResidentFactory extends Factory
         return [
             'id' => '' . fake()->unique()->randomNumber(9, true),
             'name' => fake()->name,
-            'apart_id' => Apartment::inRandomOrder()->first()->id,
         ];
     }
 }

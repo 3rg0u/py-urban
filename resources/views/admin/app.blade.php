@@ -140,7 +140,8 @@
                             class="fal fa-list"></i>Dịch vụ định kỳ</a></li>
             </ul>
             <ul class="list-unstyled px-2">
-                <li><a class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-list"></i>Quản lý hóa đơn</a></li>
+                <li><a href="{{route('bills.index')}}" class="text-decoration-none px-3 py-2 d-block"><i
+                            class="fal fa-list"></i>Quản lý hóa đơn</a></li>
             </ul>
             <ul class="list-unstyled px-2">
                 <li><a href='{{route('residents.account.index')}}' class="text-decoration-none px-3 py-2 d-block"><i
@@ -167,12 +168,16 @@
                 <li>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" class="btn btn-link logout-a" style="text-decoration: none">
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();"
+                            class="btn btn-danger logout-a" style="text-decoration: none">
                             {{ __('Đăng xuất') }}
                         </a>
                     </form>
                 </li>
             </ul>
+
+
+
 
         </div>
         <div class="content">

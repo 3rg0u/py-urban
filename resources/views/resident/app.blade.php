@@ -1,23 +1,3 @@
-{{-- @extends('layouts.master')
-
-
-@section('body')
-
-    <div class="container-fluid d-flex flex-row">
-        <div class="navbar d-flex flex-column">
-            <a href="{{route('services.pernament.index')}}" class="btn btn-md btn-primary mt-4">Dịch vụ cố định</a>
-            <a href="{{route('services.subscription.index')}}" class="btn btn-md btn-primary mt-4">Dịch vụ định kỳ</a>
-            <a href="" class="btn btn-md btn-primary mt-4">Quản lý hóa đơn</a>
-            <a href="" class="btn btn-md btn-primary mt-4">Quản lý cư dân</a>
-        </div>
-        <div>
-            @yield('content')
-        </div>
-    </div>
-@endsection
- --}}
-
-
 @extends('layouts.master')
 
 
@@ -93,19 +73,21 @@
                 </div>
             </div>
             <ul class="list-unstyled px-2">
-                <li><a href="{{route('services.pernament.index')}}" class="text-decoration-none px-3 py-2 d-block"><i
-                            class="fal fa-list"></i>Dịch vụ cố định</a></li>
+                <li><a href="{{route('resident.services.registration.index')}}"
+                        class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-list"></i>Đăng ký dịch vụ</a></li>
             </ul>
             <ul class="list-unstyled px-2">
-                <li><a href="{{route('services.subscription.index')}}" class="text-decoration-none px-3 py-2 d-block"><i
-                            class="fal fa-list"></i>Dịch vụ định kỳ</a></li>
+                <li><a href="{{route('resident.services.registration.enrolled')}}"
+                        class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-list"></i>Dịch vụ đã đăng ký</a>
+                </li>
             </ul>
             <ul class="list-unstyled px-2">
-                <li><a class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-list"></i>Quản lý hóa đơn</a></li>
+                <li><a href='{{route('resident.bills.index')}}' class="text-decoration-none px-3 py-2 d-block"><i
+                            class="fal fa-list"></i>Quản lý hóa đơn</a></li>
             </ul>
             <ul class="list-unstyled px-2">
-                <li><a class="text-decoration-none px-3 py-2 d-block"><i
-                            class="fal fa-list"></i>Quản lý tài khoản cư dân</a></li>
+                <li><a class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-list"></i>Quản lý tài khoản cư
+                        dân</a></li>
             </ul>
 
             <hr class="h-color mx-2">
@@ -122,7 +104,8 @@
                 <li>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" class="btn btn-link logout-a" style="text-decoration: none">
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();"
+                            class="btn btn-danger logout-a" style="text-decoration: none">
                             {{ __('Đăng xuất') }}
                         </a>
                     </form>
