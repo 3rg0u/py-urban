@@ -2,5 +2,5 @@
 
 
 @section('content')
-    this is dashboard
+    this is resident dashboard
 @endsection
