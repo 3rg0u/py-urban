@@ -10,10 +10,12 @@
                         <p>Price: {{$service->price}}</p>
                     </div>
                     <div class="action mt-auto">
-                        <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editService{{$service->id}}">
+                        <button class="btn btn-info" data-bs-toggle="modal"
+                            data-bs-target="#_editService_{{$service->id}}">
                             Sửa đổi thông tin
                         </button>
-                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#dropService{{$service->id}}">
+                        <button class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#_dropService_{{$service->id}}">
                             Hủy dịch vụ
                         </button>
                     </div>

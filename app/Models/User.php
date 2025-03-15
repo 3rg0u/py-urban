@@ -14,6 +14,9 @@ class User extends Authenticatable
     public $timestamps = false;
     public $incrementing = false;
 
+
+    const TYPE_ADMIN = 'manager';
+    const TYPE_RES = 'resident';
     /**
      * The attributes that are mass assignable.
      *
@@ -26,5 +29,16 @@ class User extends Authenticatable
         'apart_id'
     ];
 
+
+
+    public function isAdmin()
+    {
+        return $this->role == self::TYPE_ADMIN;
+    }
+
+    public function isResident()
+    {
+        return $this->role == self::TYPE_RES;
+    }
 
 }

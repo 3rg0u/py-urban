@@ -3,7 +3,7 @@
 @section('content')
     <style>
         .table-container {
-            overflow-x: auto; 
+            overflow-x: auto;
             margin-top: 20px;
         }
 
@@ -15,34 +15,34 @@
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .table th, .table td {
+        .table th,
+        .table td {
             padding: 12px;
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
 
         .table th {
-            background-color: #001226; 
+            background-color: #001226;
             color: white;
             text-transform: uppercase;
         }
 
         .even-row {
-            background-color: #f9f9f9; 
+            background-color: #f9f9f9;
         }
 
         .odd-row {
-            background-color: #ffffff; 
+            background-color: #ffffff;
         }
 
         .table tr:hover {
-            background-color: #a1c4f2; 
+            background-color: #a1c4f2;
         }
 
         .black {
             color: black !important;
         }
-
     </style>
 
     <div class="container">
@@ -72,9 +72,17 @@
                             <td>{{$service->name}}</td>
                             <td>{{$service->price}}</td>
                             <td>{{$service->type}}</td>
-                            <td><button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editService{{$service->id}}">
-                                EDIT
-                            </button></td>
+                            <td><button class="btn btn-info" data-bs-toggle="modal"
+                                    data-bs-target="#_editService_{{$service->id}}">
+                                    Chỉnh sửa
+                                </button>
+                                <button class="btn btn-danger" data-bs-toggle="modal"
+                                    data-bs-target="#_dropService_{{$service->id}}">
+                                    Hủy dịch vụ
+                                </button>
+                                @include('admin.service.common.edit', ['service' => $service, 'type' => 'subscription'])
+                                @include('admin.service.common.delete', ['service' => $service, 'type' => 'subscription'])
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -83,9 +91,9 @@
     </div>
 
 
-    
+
     {{-- @foreach ($services as $service)
-        @include('admin.service.common.card', ['service' => $service, 'type' => 'subscription'])
+    @include('admin.service.common.card', ['service' => $service, 'type' => 'subscription'])
     @endforeach --}}
 
     @if (session('success'))
