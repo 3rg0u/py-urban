@@ -9,10 +9,11 @@ class Bill extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $fillable = [
         'id',
         'name',
-        'price',
         'creator_id',
         'create_date'
     ];

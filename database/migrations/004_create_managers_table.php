@@ -13,7 +13,7 @@ return new class extends Migration {
         Schema::create('managers', function (Blueprint $table) {
             $table->string('id')->unique()->primary();
             $table->string('name')->nullable(false);
-            $table->string('email')->nullable(true)->default(null);
+            $table->string('email')->nullable(true)->default(null)->unique();
             $table->foreign('email')->references('email')->on('users')->nullOnDelete()->cascadeOnUpdate();
         });
     }

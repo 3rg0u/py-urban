@@ -20,7 +20,7 @@ class ManagerFactory extends Factory
         return [
             'id' => '' . fake()->unique()->randomNumber(9, true),
             'name' => fake()->name(),
-            'email' => User::inRandomOrder()->first()->email
+            'email' => User::where('role', '=', 'manager')->inRandomOrder()->first()->email,
         ];
     }
 }

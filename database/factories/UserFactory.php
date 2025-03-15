@@ -25,8 +25,8 @@ class UserFactory extends Factory
     {
         return [
             'email' => fake()->unique()->safeEmail(),
-            'password' => bcrypt('nqa'),
-            'apart_id' => Apartment::inRandomOrder()->first()->id,
+            'password' => Hash::make('nqa'),
+            'role' => 'manager'
         ];
     }
 

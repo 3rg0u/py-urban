@@ -85,7 +85,8 @@
                             class="fal fa-list"></i>Dịch vụ định kỳ</a></li>
             </ul>
             <ul class="list-unstyled px-2">
-                <li><a class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-list"></i>Quản lý hóa đơn</a></li>
+                <li><a href="{{route('bills.index')}}" class="text-decoration-none px-3 py-2 d-block"><i
+                            class="fal fa-list"></i>Quản lý hóa đơn</a></li>
             </ul>
             <ul class="list-unstyled px-2">
                 <li><a href='{{route('residents.account.index')}}' class="text-decoration-none px-3 py-2 d-block"><i
@@ -112,7 +113,13 @@
             </ul>
 
             <ul class="list-unstyled px-2">
-
+                <li>
+                    <form action="{{route('profile.destroy')}}">
+                        <button type="submit" class="btn btn-md btn-danger">
+                            Đăng xuất
+                        </button>
+                    </form>
+                </li>
             </ul>
 
 

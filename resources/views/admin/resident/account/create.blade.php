@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <a href="{{ route('residents.account.index') }}" class="btn btn-md btn-secondary">back</a>
+    <a href="{{ route('residents.account.index') }}" class="btn btn-md btn-secondary">Trở lại</a>
 
     <form action="{{route('residents.account.create')}}" method="POST" id="create_account">
         @csrf

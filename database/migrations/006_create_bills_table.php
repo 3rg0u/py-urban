@@ -16,7 +16,6 @@ return new class extends Migration {
             $table->string('creator_id')->nullable(true);
             $table->foreign('creator_id')->references('id')->on('managers')->nullOnDelete()->cascadeOnUpdate();
             $table->string('name')->nullable(false);
-            $table->double('price')->nullable(false);
         });
     }
 
