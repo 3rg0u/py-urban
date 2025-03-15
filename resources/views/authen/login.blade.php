@@ -29,11 +29,11 @@
         <div class="d-flex justify-content-end">
             @if (Route::has('password.request'))
                 <a class="btn btn-link text-decoration-none me-3" style="color: #8B4513;" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
+                    {{ __('Quên mật khẩu?') }}
                 </a>
             @endif
             <button type="submit" class="btn btn-brown" >
-                {{ __('Log in') }}
+                {{ __('Đăng nhập') }}
             </button>
             
             

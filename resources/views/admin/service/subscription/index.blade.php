@@ -1,55 +1,12 @@
 @extends('admin.app')
 
 @section('content')
-    <style>
-        .table-container {
-            overflow-x: auto;
-            margin-top: 20px;
-        }
 
-        .table {
-            border-collapse: collapse;
-            width: 100%;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .table th,
-        .table td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .table th {
-            background-color: #001226;
-            color: white;
-            text-transform: uppercase;
-        }
-
-        .even-row {
-            background-color: #f9f9f9;
-        }
-
-        .odd-row {
-            background-color: #ffffff;
-        }
-
-        .table tr:hover {
-            background-color: #a1c4f2;
-        }
-
-        .black {
-            color: black !important;
-        }
-    </style>
 
     <div class="container">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createServiceModal">
+        <button type="button" class="btn add-button" data-bs-toggle="modal" data-bs-target="#createServiceModal">
             Thêm dịch vụ
         </button>
-
         @include('admin.service.common.add', ['type' => 'subscription'])
     </div>
 
@@ -59,10 +16,10 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Type</th>
-                        <th>Edit</th>
+                        <th>Tên dịch vụ</th>
+                        <th>Giá tiền</th>
+                        <th>Loại</th>
+                        <th>Hành động</th>
                     </tr>
                 </thead>
                 <tbody>

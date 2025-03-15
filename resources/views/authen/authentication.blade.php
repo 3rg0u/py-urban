@@ -91,7 +91,7 @@
         color: white;
     }
     .btn-brown:hover {
-        background-color: #fc822b; 
+        background-color: #ffc9a2; 
         border-color: #441c00; 
     }
     

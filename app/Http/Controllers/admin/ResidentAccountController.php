@@ -13,16 +13,12 @@ class ResidentAccountController extends Controller
     public function index()
     {
         $data = User::where('role', 'resident')->get();
-        return view('admin.resident.account.index', ['accounts' => $data]);
-    }
-    public function create()
-    {
         $aparts = Apartment::leftJoin('users', 'apartments.id', '=', 'users.apart_id')
-
-
-            ->whereNull('users.apart_id')->get(['apartments.id']);
-        return view('admin.resident.account.create', ['aparts' => $aparts]);
+        ->whereNull('users.apart_id')->get(['apartments.id']);
+        return view('admin.resident.account.index', ['accounts' => $data, 'aparts' => $aparts]);
     }
+
+    
     public function store(Request $request)
     {
         $data = $request->validate(

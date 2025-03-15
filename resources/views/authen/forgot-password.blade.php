@@ -14,7 +14,7 @@
     <br>
 
     <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
-        {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+        {{ __('Quên mật khẩu? Đừng lo lắng! Chỉ cần cho chúng tôi biết địa chỉ email của bạn và chúng tôi sẽ gửi cho bạn liên kết đặt lại mật khẩu cho phép bạn chọn mật khẩu mới. Mếu quên email hãy liên hệ với ban quản lý nơi bạn ở để nhận sự trợ giúp.') }}
     </div>
 
     <!-- Session Status -->

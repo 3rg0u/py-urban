@@ -29,7 +29,7 @@ class ServiceSubscriptionController extends Controller
             [
                 'name' => $data['name'],
                 'price' => $data['price'],
-                'type' => 'fixed'
+                'type' => 'sub'
             ]
         );
         return back()->with('success', 'Thêm dịch vụ thành công');
