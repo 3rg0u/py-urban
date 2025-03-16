@@ -6,9 +6,9 @@
         <thead>
             <tr>
                 <th scope="col">ID hóa đơn</th>
+                <th scope="col">Số tiền</th>
                 <th scope="col">Trạng thái thanh toán</th>
                 <th scope="col">Ngày thanh toán</th>
-                <th scope="col">Số tiền</th>
                 <th scope="col">Hành động</th>
             </tr>
         </thead>
@@ -16,9 +16,15 @@
             @foreach ($paid_bills as $bill)
                 <tr>
                     <td>{{$bill->bill_id}}</td>
-                    <td>{{$bill->state}}</td>
+                    <td><span class="price-display">{{$bill->price}}</span><span class="h6"> vnd</span></td>
+                    <td>
+                        @if ($bill->state == 0)
+                            Chưa thanh toán
+                        @else
+                            Đã thanh toán
+                        @endif
+                    </td>
                     <td>{{$bill->paid_date}}</td>
-                    <td>{{$bill->price}}</td>
                     @if ($bill->state == 0)
                         <td><button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#_checkoutBill_{{$bill->id}}">
                                 Thanh toán

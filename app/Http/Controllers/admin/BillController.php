@@ -9,6 +9,7 @@ use App\Models\Manager;
 use App\Models\PaidBill;
 use App\Models\Service;
 use App\Models\ServiceRegistration;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -33,7 +34,6 @@ class BillController extends Controller
         $date = now();
         $creator_id = Manager::where('email', '=', Auth::user()->email)->first()->id;
 
-        // dd($creator_id);
         $bill = Bill::create(
             [
                 'name' => $data['name'],
@@ -41,18 +41,18 @@ class BillController extends Controller
                 'create_date' => $date
             ]
         );
-        $aparts = Apartment::all();
+        $aparts = User::where('role', '=', 'resident')->get();
         foreach ($aparts as $apart) {
             $price = 0;
-            $price += self::_calcApartRent($apart->id);
+            $price += self::_calcApartRent($apart->apart_id);
             $price += self::_calcFixedService();
-            $price += self::_calcSubService($apart->id);
+            $price += self::_calcSubService($apart->apart_id);
             // dd($price);
             PaidBill::create(
                 [
                     'paid_date' => null,
                     'bill_id' => $bill->id,
-                    'apart_id' => $apart->id,
+                    'apart_id' => $apart->apart_id,
                     'state' => false,
                     'price' => $price,
                 ]

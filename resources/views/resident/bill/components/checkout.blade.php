@@ -14,7 +14,10 @@
                         <img class="d-block" width="450px" height="450px"
                             src="https://i.ibb.co/mr2qP6MN/qrcode-183060530-d921f12d9cb4d4f8d09900f2c8d261f3.png"
                             alt="">
-                        <p>Số tiền phải thanh toán: {{$bill->price}}</p>
+                        <div>
+                            <span class="h4">Số tiền phải thanh toán: </span><span
+                                class="price-display">{{$bill->price}}</span><span class="h6">vnd</span>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>

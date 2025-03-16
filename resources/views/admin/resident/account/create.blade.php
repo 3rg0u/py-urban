@@ -24,4 +24,24 @@
     </form>
 
 
+    <script>
+        document.getElementById('create_account').addEventListener('submit', function (event) {
+
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('password_confirmation').value;
+
+            if (password !== confirmPassword) {
+                event.preventDefault();
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Đã xảy ra lỗi',
+                    text: 'Mật khẩu không khớp!',
+                    timer: 3000,
+                    showConfirmButton: false
+                });
+            }
+        });
+    </script>
+
+
 @endsection

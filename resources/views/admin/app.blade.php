@@ -4,125 +4,125 @@
 @section('body')
 
 
-<style>
-    body {
-        background: #eee;
-    }
+    <style>
+        body {
+            background: #eee;
+        }
 
-    #side_nav {
-        background: #000;
-        min-width: 250px;
-        max-width: 250px;
-        transition: all 0.3s;
-    }
-
-    .content {
-        min-height: 100vh;
-        width: 100%;
-    }
-
-    hr.h-color {
-        background: #eee;
-    }
-
-    .sidebar li.active {
-        background: #eee;
-        border-radius: 8px;
-    }
-
-    .sidebar li.active a,
-    .sidebar li.active a:hover {
-        color: #000;
-    }
-
-    .sidebar li a {
-        color: #fff;
-    }
-
-    .logo-div {
-        width: 100%;
-        height: 60px;
-        background-color: white;
-    }
-
-    .logo-div img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-
-    @media(max-width: 767px) {
         #side_nav {
-            margin-left: -250px;
-            position: absolute;
+            background: #000;
+            min-width: 250px;
+            max-width: 250px;
+            transition: all 0.3s;
+        }
+
+        .content {
             min-height: 100vh;
-            z-index: 1;
+            width: 100%;
         }
 
-        #side_nav.active {
-            margin-left: 0;
+        hr.h-color {
+            background: #eee;
         }
-    }
-    .table-container {
-        height: 80vh;
-        width: 100%;
-        overflow-x: auto;
-        margin-top: 20px;
-        box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.4);
-        border-radius: 15px 15px 5px 5px; 
-    }
 
-    .table {
-        border-collapse: collapse;
-        width: 100%;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    }
+        .sidebar li.active {
+            background: #eee;
+            border-radius: 8px;
+        }
 
-    .table th,
-    .table td {
-        padding: 12px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-    }
+        .sidebar li.active a,
+        .sidebar li.active a:hover {
+            color: #000;
+        }
 
-    .table th {
-        background-color: #001226;
-        color: white;
-        text-transform: uppercase;
-    }
+        .sidebar li a {
+            color: #fff;
+        }
 
-    .even-row {
-        background-color: #f9f9f9;
-    }
+        .logo-div {
+            width: 100%;
+            height: 60px;
+            background-color: white;
+        }
 
-    .odd-row {
-        background-color: #ffffff;
-    }
-
-    .table tr:hover {
-        background-color: #a1c4f2;
-    }
-
-    .black {
-        color: black !important;
-    }
+        .logo-div img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
 
-    .add-button{
-        background-color: #00626d;
-        color: white;
-        box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
-    }
+        @media(max-width: 767px) {
+            #side_nav {
+                margin-left: -250px;
+                position: absolute;
+                min-height: 100vh;
+                z-index: 1;
+            }
 
-    .add-button:hover {
-        background-color: #4ea8b1;
-        color: rgb(255, 255, 255);
-    }
+            #side_nav.active {
+                margin-left: 0;
+            }
+        }
 
-</style>
+        .table-container {
+            height: 80vh;
+            width: 100%;
+            overflow-x: auto;
+            margin-top: 20px;
+            box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.4);
+            border-radius: 15px 15px 5px 5px;
+        }
+
+        .table {
+            border-collapse: collapse;
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .table th,
+        .table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .table th {
+            background-color: #001226;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        .even-row {
+            background-color: #f9f9f9;
+        }
+
+        .odd-row {
+            background-color: #ffffff;
+        }
+
+        .table tr:hover {
+            background-color: #a1c4f2;
+        }
+
+        .black {
+            color: black !important;
+        }
+
+
+        .add-button {
+            background-color: #00626d;
+            color: white;
+            box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+        }
+
+        .add-button:hover {
+            background-color: #4ea8b1;
+            color: rgb(255, 255, 255);
+        }
+    </style>
 
     <div class="main-container d-flex">
         <div class="sidebar sidebar-custome" id="side_nav">
@@ -158,10 +158,10 @@
 
             <ul class="list-unstyled px-2">
                 <li>
-                    <a href="{{ route('profile.edit') }}" class="text-decoration-none px-3 py-2 d-block">
+                    <a href="{{ route('admin.profile.index') }}" class="text-decoration-none px-3 py-2 d-block">
                         <i class="fal fa-list"></i>
                         <div class="dashboard-button">
-                            Thông tin cá nhân 
+                            Thông tin cá nhân
                         </div>
                     </a>
                 </li>
@@ -203,7 +203,7 @@
                                         $userName = auth()->user()->name ?? null;
                                     @endphp
                                     Xin chào {{ $roleText }}{{ $userName ? ' (' . $userName . ')' : ' !'  }}
-                                </a>                                
+                                </a>
                             </li>
                         </ul>
                     </div>

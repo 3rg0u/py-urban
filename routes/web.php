@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\BillController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\admin\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\admin\ResidentAccountController;
@@ -9,6 +9,7 @@ use App\Http\Controllers\admin\ResidentInforController;
 use App\Http\Controllers\admin\ServicePernamentController;
 use App\Http\Controllers\admin\ServiceSubscriptionController;
 use App\Http\Controllers\resident\BillController as ResidentBillController;
+use App\Http\Controllers\resident\ProfileController as ResidentProfileController;
 use App\Http\Controllers\resident\ServiceSubController;
 
 /*
@@ -42,7 +43,7 @@ Route::middleware(['auth', 'admin.assert'])->group(function () {
             return view('admin.dashboard');
         })->name('admin.dashboard');
 
-
+        //service section
         Route::prefix('/services')->group(function () {
 
             Route::get('/', function () {
@@ -64,6 +65,7 @@ Route::middleware(['auth', 'admin.assert'])->group(function () {
             });
         });
 
+        //resident section
         Route::prefix('/residents')->group(function () {
             Route::get('/', function () {
                 return redirect()->route('residents.account.index');
@@ -73,10 +75,6 @@ Route::middleware(['auth', 'admin.assert'])->group(function () {
                 Route::get('/', [ResidentAccountController::class, 'index'])->name('residents.account.index');
                 Route::get('/create', [ResidentAccountController::class, 'create'])->name('residents.account.create');
                 Route::post('/create', [ResidentAccountController::class, 'store'])->name('residents.account.create');
-<<<<<<< HEAD
-
-=======
->>>>>>> 0da52eabc7df55113bfde2bb7fcac5adf5a62bef
                 Route::get('/edit/{id}', [ResidentAccountController::class, 'edit'])->name('residents.account.edit');
                 Route::put('/edit/{id}', [ResidentAccountController::class, 'updateInfor'])->name('residents.account.edit');
                 Route::put('/edit/pw/{id}', [ResidentAccountController::class, 'updatePassword'])->name('residents.account.editpw');
@@ -93,13 +91,20 @@ Route::middleware(['auth', 'admin.assert'])->group(function () {
             });
         });
 
-
+        //bill section
         Route::prefix('/bills')->group(function () {
             Route::get('/', [BillController::class, 'index'])->name('bills.index');
 
             Route::post('/create', [BillController::class, 'store'])->name('bills.create');
             Route::get('/show/{id}', [BillController::class, 'show'])->name('bills.show');
 
+        });
+
+
+        Route::prefix('/profile')->group(function () {
+            Route::get('/', [ProfileController::class, 'index'])->name('admin.profile.index');
+            Route::put('/update-email/{id}', [ProfileController::class, 'updateEmail'])->name('admin.profile.update.email');
+            Route::put('/update-pw/{id}', [ProfileController::class, 'updatePassword'])->name('admin.profile.update.pw');
         });
     });
 
@@ -118,11 +123,14 @@ Route::middleware(['auth', 'resident.assert'])->group(function () {
             return view('resident.dashboard');
         })->name('resident.dashboard');
 
+
+        //service section
         Route::prefix('/services')->group(function () {
             Route::get('/', function () {
                 return redirect()->route('resident.services.registration.index');
             });
 
+            //service section
             Route::prefix('/registration')->group(function () {
                 Route::get('/', [ServiceSubController::class, 'index'])->name('resident.services.registration.index');
                 Route::post('/enroll/{id}', [ServiceSubController::class, 'store'])->name('resident.services.registration.enroll');
@@ -130,10 +138,23 @@ Route::middleware(['auth', 'resident.assert'])->group(function () {
                 Route::delete('/leave/{id}', [ServiceSubController::class, 'destroy'])->name('resident.services.registration.leave');
             });
 
-            Route::prefix('/bills')->group(function () {
-                Route::get('/', [ResidentBillController::class, 'index'])->name('resident.bills.index');
-                Route::put('/checkout/{id}', [ResidentBillController::class, 'checkout'])->name('resident.bills.checkout');
-            });
+        });
+
+
+
+
+        //bill section
+        Route::prefix('/bills')->group(function () {
+            Route::get('/', [ResidentBillController::class, 'index'])->name('resident.bills.index');
+            Route::put('/checkout/{id}', [ResidentBillController::class, 'checkout'])->name('resident.bills.checkout');
+        });
+
+
+        //profile section
+        Route::prefix('/profile')->group(function () {
+            Route::get('/', [ResidentProfileController::class, 'index'])->name('resident.profile.index');
+            Route::put('/update-email/{id}', [ResidentProfileController::class, 'updateEmail'])->name('resident.profile.update.email');
+            Route::put('/update-pw/{id}', [ResidentProfileController::class, 'updatePassword'])->name('resident.profile.update.pw');
         });
     });
 

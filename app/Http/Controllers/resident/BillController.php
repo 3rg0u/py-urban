@@ -29,6 +29,7 @@ class BillController extends Controller
                     'state' => true
                 ]
             );
+            return back()->with('success', 'Thanh toán hóa đơn thành công!');
         } catch (ModelNotFoundException $exc) {
             return back()->withErrors(['id' => 'ID không hợp lệ!']);
         }

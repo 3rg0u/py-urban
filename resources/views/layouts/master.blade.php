@@ -43,4 +43,11 @@
     </script>
 @endif
 
+<script>
+    document.querySelectorAll(".price-display").forEach((el) => {
+        const number = Number(el.textContent);
+        el.textContent = number.toLocaleString("vi-VN");
+    });
+</script>
+
 </html>
