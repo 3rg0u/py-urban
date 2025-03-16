@@ -4,6 +4,7 @@
 @section('body')
 
     <style>
+
         body {
             background: #eee;
         }
@@ -63,6 +64,116 @@
                 margin-left: 0;
             }
         }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            justify-items: center;
+        }
+
+        .card {
+            width: 252px;
+            height: 300px;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 15px 15px 30px #bebebe,
+                        -15px -15px 30px #ffffff;
+            transition: 0.2s ease-in-out;
+        }
+
+        .img {
+            width: 100%;
+            height: 50%;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            background: linear-gradient(#e66465, #9198e5);
+            display: flex;
+            align-items: top;
+            justify-content: right;
+        }
+
+        .save {
+            transition: 0.2s ease-in-out;
+            border-radius: 10px;
+            margin: 20px;
+            width: 30px;
+            height: 30px;
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .text {
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: space-around;
+        }
+
+        .save .svg {
+            transition: 0.2s ease-in-out;
+            width: 15px;
+            height: 15px;
+        }
+
+
+
+        .back-div{
+            padding: 10px;
+            width: 70%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #e3fff9;
+            border-radius: 10px;
+        }
+
+
+
+        .text .h3 {
+            font-family: 'Lucida Sans' sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: black;
+        }
+
+        .text .p {
+            font-family: 'Lucida Sans' sans-serif;
+            color: #999999;
+            font-size: 13px;
+        }
+
+
+        .card:hover {
+            cursor: pointer;
+            box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .save:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .save:hover .svg {
+            fill: #ced8de;
+        }
+
+        .bnt{
+            margin-top: 10px;
+            height: 40px; 
+            background-color: rgb(6, 164, 255);
+            border-radius: 10px;
+            color: white;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .bnt:hover{
+            background-color: rgb(0, 93, 146);
+            color: white;
+        }
+
     </style>
 
     <div class="main-container d-flex">
@@ -125,7 +236,13 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                         <ul class="navbar-nav mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Profile</a>
+                                <a class="nav-link active" aria-current="page">
+                                    @php
+                                        $roleText = auth()->user()->role === 'manager' ? 'ban quản lý' : 'cư dân';
+                                        $userName = auth()->user()->name ?? null;
+                                    @endphp
+                                    Xin chào {{ $roleText }}{{ $userName ? ' (' . $userName . ')' : ' !'  }}
+                                </a>
                             </li>
                         </ul>
                     </div>
