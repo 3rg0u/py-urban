@@ -76,7 +76,7 @@ class BillController extends Controller
 
     private static function _calcFixedService()
     {
-        $services = Service::where('type', '=', 'sub')
+        $services = Service::where('type', '=', 'fixed')
             ->where('name', '!=', 'Phi thue nha (theo m2)')->get();
         $sum = 0;
         foreach ($services as $service) {
