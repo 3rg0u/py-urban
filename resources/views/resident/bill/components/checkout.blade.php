@@ -18,6 +18,15 @@
                             <span class="h4">Số tiền phải thanh toán: </span><span
                                 class="price-display">{{$bill->price}}</span><span class="h6">vnd</span>
                         </div>
+                        <div>
+                            <span class="h4">Ngân hàng: Phenikaa-Bank</span>
+                        </div>
+                        <div>
+                            <span class="h4">Số tài khoản: 01019999</span>
+                        </div>
+                        <div>
+                            <span class="h4">Nội dung: js3f-a4kj-fdh-10312</span>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
